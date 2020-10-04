@@ -1,13 +1,13 @@
-pops = ['test']
+pops = ['EAS']
 mafs = [0.01]
 windows = [50]
 steps = [5]
 threshs = [0.5]
 
-#rule all:
-#    input:
-#        expand("output/figures/{POP}/{POP}_{MAF}_PCA.png", POP=pops, MAF=mafs),
-#	 expand("output/figures/{POP}/{POP}_{MAF}.{window}_{step}_{thresh}.png", POP=pops, MAF=mafs, window=windows, step=steps, thresh=threshs)
+rule all:
+    input:
+        expand("output/figures/{POP}/{POP}_{MAF}_PCA.png", POP=pops, MAF=mafs),
+	expand("output/figures/{POP}/{POP}_{MAF}.{window}_{step}_{thresh}_gamma.png", POP=pops, MAF=mafs, window=windows, step=steps, thresh=threshs)
 
 rule run_pca:
     input:
