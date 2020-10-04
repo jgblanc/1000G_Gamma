@@ -1,4 +1,4 @@
-pops = ['AMR']
+pops = ['AA']
 mafs = [0.01]
 windows = [50]
 steps = [5]
