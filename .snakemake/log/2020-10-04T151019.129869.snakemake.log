@@ -1,0 +1,100 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cluster nodes: 500
+Job counts:
+	count	jobs
+	7	LD_pruning
+	7	add_evo_info
+	1	all
+	7	calc_gamma
+	7	plot_gamma
+	7	plot_pca
+	7	run_pca
+	43
+
+[Sun Oct  4 15:10:19 2020]
+rule run_pca:
+    input: 1kg_IDS/AFR.txt
+    output: output/PCA/AFR/AFR_0.01.eigenvec, output/PCA/AFR/AFR_0.01.eigenvec.var
+    jobid: 19
+    wildcards: POP=AFR, MAF=0.01
+
+plink -bfile ../../data/1kg/plink-files/files/ALL.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes --keep 1kg_IDS/AFR.txt --pca var-wts --out output/PCA/AFR/AFR_0.01 --maf 0.01 --no-sex  --noweb --no-pheno
+Error submitting jobscript (exit code 1):
+
+Job failed, going on with independent jobs.
+
+[Sun Oct  4 15:10:19 2020]
+rule run_pca:
+    input: 1kg_IDS/SAS.txt
+    output: output/PCA/SAS/SAS_0.01.eigenvec, output/PCA/SAS/SAS_0.01.eigenvec.var
+    jobid: 21
+    wildcards: POP=SAS, MAF=0.01
+
+plink -bfile ../../data/1kg/plink-files/files/ALL.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes --keep 1kg_IDS/SAS.txt --pca var-wts --out output/PCA/SAS/SAS_0.01 --maf 0.01 --no-sex  --noweb --no-pheno
+Error submitting jobscript (exit code 1):
+
+Job failed, going on with independent jobs.
+
+[Sun Oct  4 15:10:19 2020]
+rule run_pca:
+    input: 1kg_IDS/MX.txt
+    output: output/PCA/MX/MX_0.01.eigenvec, output/PCA/MX/MX_0.01.eigenvec.var
+    jobid: 23
+    wildcards: POP=MX, MAF=0.01
+
+plink -bfile ../../data/1kg/plink-files/files/ALL.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes --keep 1kg_IDS/MX.txt --pca var-wts --out output/PCA/MX/MX_0.01 --maf 0.01 --no-sex  --noweb --no-pheno
+Error submitting jobscript (exit code 1):
+
+Job failed, going on with independent jobs.
+
+[Sun Oct  4 15:10:19 2020]
+rule run_pca:
+    input: 1kg_IDS/EUR.txt
+    output: output/PCA/EUR/EUR_0.01.eigenvec, output/PCA/EUR/EUR_0.01.eigenvec.var
+    jobid: 18
+    wildcards: POP=EUR, MAF=0.01
+
+plink -bfile ../../data/1kg/plink-files/files/ALL.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes --keep 1kg_IDS/EUR.txt --pca var-wts --out output/PCA/EUR/EUR_0.01 --maf 0.01 --no-sex  --noweb --no-pheno
+Error submitting jobscript (exit code 1):
+
+Job failed, going on with independent jobs.
+
+[Sun Oct  4 15:10:20 2020]
+rule run_pca:
+    input: 1kg_IDS/AMR.txt
+    output: output/PCA/AMR/AMR_0.01.eigenvec, output/PCA/AMR/AMR_0.01.eigenvec.var
+    jobid: 20
+    wildcards: POP=AMR, MAF=0.01
+
+plink -bfile ../../data/1kg/plink-files/files/ALL.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes --keep 1kg_IDS/AMR.txt --pca var-wts --out output/PCA/AMR/AMR_0.01 --maf 0.01 --no-sex  --noweb --no-pheno
+Error submitting jobscript (exit code 1):
+
+Job failed, going on with independent jobs.
+
+[Sun Oct  4 15:10:20 2020]
+rule run_pca:
+    input: 1kg_IDS/AA.txt
+    output: output/PCA/AA/AA_0.01.eigenvec, output/PCA/AA/AA_0.01.eigenvec.var
+    jobid: 22
+    wildcards: POP=AA, MAF=0.01
+
+plink -bfile ../../data/1kg/plink-files/files/ALL.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes --keep 1kg_IDS/AA.txt --pca var-wts --out output/PCA/AA/AA_0.01 --maf 0.01 --no-sex  --noweb --no-pheno
+Error submitting jobscript (exit code 1):
+
+Job failed, going on with independent jobs.
+
+[Sun Oct  4 15:10:20 2020]
+rule run_pca:
+    input: 1kg_IDS/ALL.txt
+    output: output/PCA/ALL/ALL_0.01.eigenvec, output/PCA/ALL/ALL_0.01.eigenvec.var
+    jobid: 24
+    wildcards: POP=ALL, MAF=0.01
+
+plink -bfile ../../data/1kg/plink-files/files/ALL.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes --keep 1kg_IDS/ALL.txt --pca var-wts --out output/PCA/ALL/ALL_0.01 --maf 0.01 --no-sex  --noweb --no-pheno
+Error submitting jobscript (exit code 1):
+
+Job failed, going on with independent jobs.
+Terminating processes on user request, this might take some time.
+Will exit after finishing currently running jobs.
+Cancelling snakemake on user request.

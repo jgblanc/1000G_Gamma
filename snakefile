@@ -1,4 +1,4 @@
-pops = ['EAS']
+pops = ['ALL']
 mafs = [0.01]
 windows = [50]
 steps = [5]
