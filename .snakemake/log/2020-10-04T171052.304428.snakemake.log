@@ -1,0 +1,89 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 56
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	LD_pruning
+	1	add_evo_info
+	1	all
+	1	calc_gamma
+	1	plot_gamma
+	1	plot_pca
+	1	run_pca
+	7
+
+[Sun Oct  4 17:10:52 2020]
+rule run_pca:
+    input: 1kg_IDS/AMR.txt
+    output: output/PCA/AMR/AMR_0.01.eigenvec, output/PCA/AMR/AMR_0.01.eigenvec.var
+    jobid: 3
+    wildcards: POP=AMR, MAF=0.01
+
+[Sun Oct  4 17:14:36 2020]
+Finished job 3.
+1 of 7 steps (14%) done
+
+[Sun Oct  4 17:14:37 2020]
+rule plot_pca:
+    input: output/PCA/AMR/AMR_0.01.eigenvec
+    output: output/figures/AMR/AMR_0.01_PCA.png
+    jobid: 1
+    wildcards: POP=AMR, MAF=0.01
+
+[Sun Oct  4 17:14:37 2020]
+rule add_evo_info:
+    input: output/PCA/AMR/AMR_0.01.eigenvec.var
+    output: output/PCA/AMR/AMR_0.01.eigenvec.var.evo
+    jobid: 5
+    wildcards: POP=AMR, MAF=0.01
+
+[Sun Oct  4 17:14:41 2020]
+Finished job 1.
+2 of 7 steps (29%) done
+[Sun Oct  4 17:19:08 2020]
+Finished job 5.
+3 of 7 steps (43%) done
+
+[Sun Oct  4 17:19:08 2020]
+rule LD_pruning:
+    input: output/PCA/AMR/AMR_0.01.eigenvec.var.evo
+    output: output/pruned/AMR/AMR_0.01.50_5_0.5.DA.prune.in
+    jobid: 6
+    wildcards: POP=AMR, MAF=0.01, window=50, step=5, thresh=0.5
+
+[Sun Oct  4 17:21:52 2020]
+Finished job 6.
+4 of 7 steps (57%) done
+
+[Sun Oct  4 17:21:52 2020]
+rule calc_gamma:
+    input: output/PCA/AMR/AMR_0.01.eigenvec.var.evo, output/pruned/AMR/AMR_0.01.50_5_0.5.DA.prune.in
+    output: output/gamma/AMR/AMR_0.01.50_5_0.5_gamma.txt
+    jobid: 4
+    wildcards: POP=AMR, MAF=0.01, window=50, step=5, thresh=0.5
+
+[Sun Oct  4 17:23:27 2020]
+Finished job 4.
+5 of 7 steps (71%) done
+
+[Sun Oct  4 17:23:27 2020]
+rule plot_gamma:
+    input: output/gamma/AMR/AMR_0.01.50_5_0.5_gamma.txt
+    output: output/figures/AMR/AMR_0.01.50_5_0.5_gamma.png
+    jobid: 2
+    wildcards: POP=AMR, MAF=0.01, window=50, step=5, thresh=0.5
+
+[Sun Oct  4 17:23:30 2020]
+Finished job 2.
+6 of 7 steps (86%) done
+
+[Sun Oct  4 17:23:30 2020]
+localrule all:
+    input: output/figures/AMR/AMR_0.01_PCA.png, output/figures/AMR/AMR_0.01.50_5_0.5_gamma.png
+    jobid: 0
+
+[Sun Oct  4 17:23:30 2020]
+Finished job 0.
+7 of 7 steps (100%) done
+Complete log: /project2/jjberg/jgblanc/1000G_Gamma/.snakemake/log/2020-10-04T171052.304428.snakemake.log
