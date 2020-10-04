@@ -1,4 +1,4 @@
-pops = ['EUR']
+pops = ['AFR']
 mafs = [0.01]
 windows = [50]
 steps = [5]
